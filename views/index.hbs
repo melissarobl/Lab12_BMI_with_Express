@@ -8,8 +8,8 @@
     </div>
 
     <div class="col-md-6">
-        <form action="/calculate" method="POST">
-            <!-- action is URL where the browser will send the form data. POST telling server that there is data to save. Data sent in request body. Post data
+        <form action="/calculate" method="GET">
+            <!-- action is URL where the browser will send the form data. GET telling server that there is data to get. Data sent in request body. Post data
              can be encrypted-->
             <label class="form-label" for="height">Height in meters:</label>
             <input class="form-control" id="height" name="height_meters" type="number" step=".01" min="0">

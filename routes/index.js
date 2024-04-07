@@ -12,24 +12,23 @@ router.get('/', function(req, res, next) {
 }) //get request to the home page
 
 //route handler responds to get request to navigate to /calculate and show the bmi_calculated file page
-router.get('/calculate', function(req, res, next) {
-    res.render('bmi_calculated')
-})
-
-//route handler finds post requests for /calculate in index (the form) in this case
 //when it finds the location of the post, it runs the function, which is calculating BMI
 //then it renders (shows) the bmi on the page where bmi is called in {{}}
-router.post('/calculate', function(req, res, next) {
-    const formData= req.body
-    const bmi = formData['weight_kilos'] / (formData['height_meters'] * formData['height_meters'] )
-    // because names of data have _, must use []. Without _ , it would just be formData.weight (for example)
+router.get('/calculate', function(req, res, next) {
 
+    const formData = req.query  //define a variable to the information in the
+    const bmi = formData['weight_kilos'] / (formData['height_meters'] * formData['height_meters'])
+    res.render('bmi_calculated', {
 
-res.render('bmi_calculated', {
-    bmi: bmi.toFixed(2)
+        bmi: bmi.toFixed(2)
 
     })
 })
+// because names of data have _, must use []. Without _ , it would just be formData.weight (for example)
 
-// return router object to whatever else needs file
+
+
 module.exports = router //this line needs to be the very last line!
+
+
+
