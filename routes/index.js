@@ -12,6 +12,9 @@ router.get('/', function(req, res, next) {
     })
 }) //get request to the home page
 
+router.get('/calculate', function(req, res, next) {
+    res.render('bmi_calculated')
+})
 
 router.post('/calculate', function(req, res, next) {
     const formData= req.body
