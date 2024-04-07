@@ -1,0 +1,28 @@
+
+<div class="row">
+    <div class="col-md-7">
+        <h2><b>Enter Your Data</b></h2>
+
+
+    </div>
+
+    <div class="col-md-6">
+        <form action="/calculate" method="POST">
+            <!-- 'for' associates name label with name input. Allows screen readers to know where input is related.
+            Can also click on label to get to corresponding input box. -->
+            <label class="form-label" for="height">Height in meters:</label>
+            <input class="form-control" id="height" name="height_meters" type="number" step=".01" min="0">
+
+            <br>
+
+            <label class="form-label" for="weight">Weight in kilograms</label>
+            <input class="form-control" id="weight" name="weight_kilos" type="number" step=".01" min="0">
+
+            <br>
+
+            <!-- Displays a button, and when the button is clicked, submit the form  -->
+            <button class="btn btn-secondary">Calculate</button>
+        </form>
+
+    </div>
+</div> <!-- end of the row div that contains both columns -->
