@@ -1,3 +1,4 @@
+<h1><b>Body Mass Index Calculator</b></h1>
 
 <div class="row">
     <div class="col-md-7">
@@ -8,8 +9,8 @@
 
     <div class="col-md-6">
         <form action="/calculate" method="POST">
-            <!-- 'for' associates name label with name input. Allows screen readers to know where input is related.
-            Can also click on label to get to corresponding input box. -->
+            <!-- action is URL where the browser will send the form data. POST telling server that there is data to save. Data sent in request body. Post data
+             can be encrypted-->
             <label class="form-label" for="height">Height in meters:</label>
             <input class="form-control" id="height" name="height_meters" type="number" step=".01" min="0">
 
@@ -20,7 +21,7 @@
 
             <br>
 
-            <!-- Displays a button, and when the button is clicked, submit the form  -->
+            <!-- Displays a button -->
             <button class="btn btn-secondary">Calculate</button>
         </form>
 

@@ -3,8 +3,7 @@ const router = express.Router()
 // router object figures out what code to run in response to a request.
 // typically based on the URL, and the method (GET, POST...)
 
-// responds to get request to home page
-//request, response, next
+// responds to get request to home page, which here is the form
 router.get('/', function(req, res, next) {
     // name of Handlebars File - name of a template, optional object with data for the template
     res.render('index',{
@@ -12,13 +11,18 @@ router.get('/', function(req, res, next) {
     })
 }) //get request to the home page
 
+//route handler responds to get request to navigate to /calculate and show the bmi_calculated file page
 router.get('/calculate', function(req, res, next) {
     res.render('bmi_calculated')
 })
 
+//route handler finds post requests for /calculate in index (the form) in this case
+//when it finds the location of the post, it runs the function, which is calculating BMI
+//then it renders (shows) the bmi on the page where bmi is called in {{}}
 router.post('/calculate', function(req, res, next) {
     const formData= req.body
-    const bmi = formData['weight_kilos'] / (formData['height_meters'] * formData['height_meters'] )  // for a POST request
+    const bmi = formData['weight_kilos'] / (formData['height_meters'] * formData['height_meters'] )
+    // because names of data have _, must use []. Without _ , it would just be formData.weight (for example)
 
 
 res.render('bmi_calculated', {
