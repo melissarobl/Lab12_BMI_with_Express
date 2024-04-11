@@ -1,3 +1,5 @@
+// create a function to create a web page in response to different URLs
+// each URL will have its own function that creates the web page that's sent to the browser
 const express = require('express')
 const router = express.Router()
 // router object figures out what code to run in response to a request.
@@ -6,10 +8,15 @@ const router = express.Router()
 // responds to get request to home page, which here is the main form
 router.get('/', function(req, res, next) {
     // name of Handlebars File - name of a template, optional object with data for the template
-    res.render('index',{
+    //const height = req.query.height
+    res.render('index.hbs',{
         title: 'Body Mass Index Calculator'
     })
 })
+
+// router.get('/help', function(req, res) {
+//     res.send('How can I help you?')
+// })
 
 //route handler responds to get request to navigate to /calculate and show the bmi_calculated file page
 //when it finds the location of the GET, it runs the function, which is calculating BMI using the input from the query
